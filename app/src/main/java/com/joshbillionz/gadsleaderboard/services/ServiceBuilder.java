@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceBuilder {
     private static final  String BASE_URL = "https://gadsapi.herokuapp.com/api/";
-    private static final String FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse";
+    public static final String FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSf9d1TcNU6zc6KR8bSEM41Z1g1zl35cwZr2xyjIhaMAz8WChQ/formResponse";
     public static final String TEST_FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLSeeEMirN6_GqQbFUFGJCe_LEmBEsGbk2JrEh8WAfqrlaQr9pg/formResponse";
 
     private static HttpLoggingInterceptor logger = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY);

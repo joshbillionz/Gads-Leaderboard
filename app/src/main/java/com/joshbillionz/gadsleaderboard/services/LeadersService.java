@@ -26,7 +26,7 @@ public interface LeadersService {
 
     @FormUrlEncoded
     @POST
-    Call<Void> DONTTOUCH(@Url String formURL,
+    Call<Void> submitForm(@Url String formURL,
                     @Field(EMAIL_ADDRESS) String email,
                     @Field(NAME) String name,
                     @Field(LAST_NAME) String lastName,
@@ -41,7 +41,7 @@ public interface LeadersService {
      String TEST_LINK_TO_PROJECT = "entry.1870768409";
     @FormUrlEncoded
     @POST
-    Call<Void> submitForm(@Url String formURL,
+    Call<Void> testSubmitForm(@Url String formURL,
                           @Field(TEST_EMAIL_ADDRESS) String email,
                           @Field(TEST_NAME) String name,
                           @Field(TEST_LAST_NAME) String lastName,

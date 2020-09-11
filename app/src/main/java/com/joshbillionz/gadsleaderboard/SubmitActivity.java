@@ -24,6 +24,8 @@ import com.joshbillionz.gadsleaderboard.models.HoursLeader;
 import com.joshbillionz.gadsleaderboard.services.LeadersService;
 import com.joshbillionz.gadsleaderboard.services.ServiceBuilder;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class SubmitActivity extends AppCompatActivity {
@@ -91,7 +93,7 @@ public class SubmitActivity extends AppCompatActivity {
     private void submit( String firstName,String lastName, String email, String link) {
 
         LeadersService service = ServiceBuilder.buildService(LeadersService.class);
-        Call<Void> call = service.submitForm(ServiceBuilder.TEST_FORM_URL,email,firstName,lastName,link);
+        Call<Void> call = service.submitForm(ServiceBuilder.FORM_URL,email,firstName,lastName,link);
 
         call.enqueue(new Callback<Void>() {
             @Override
@@ -101,7 +103,7 @@ public class SubmitActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Void> call, Throwable t) {
+            public void onFailure(@NotNull Call<Void> call, Throwable t) {
                 Toast.makeText(SubmitActivity.this, "Success", Toast.LENGTH_SHORT).show();
                 showDialog(TAG_FAILURE);
             }
@@ -115,11 +117,11 @@ public class SubmitActivity extends AppCompatActivity {
                 field.setError("field must be filled");
                 return false;
             }
-            if(!isValidURL(mGithubET.getText().toString())){
+            if(!isValidURL(mGithubET.getText().toString().trim())){
                 mGithubET.setError("Invalid URL");
                 return false;
             }
-            if(!isValidEmail(mEmailET.getText().toString())){
+            if(!isValidEmail(mEmailET.getText().toString().trim())){
                mEmailET.setError("Invalid Email");
                 return false;
             }
@@ -129,7 +131,6 @@ public class SubmitActivity extends AppCompatActivity {
 
     private boolean isValidEmail(CharSequence target){
         if (target== null) return false;
-         Patterns.WEB_URL.matcher(target).matches();
         return Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
