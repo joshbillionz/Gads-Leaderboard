@@ -4,19 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".SubmitActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="Project Submission"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:context=".SubmitActivity">
 
 
@@ -31,6 +46,7 @@
                 android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="FirstName" />
@@ -42,6 +58,7 @@
                 android:layout_weight="1">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="LastName" />
@@ -49,12 +66,12 @@
         </LinearLayout>
 
 
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/TextInputLayout"
             android:layout_marginTop="36dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email Address" />
@@ -65,20 +82,22 @@
             android:layout_marginTop="36dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/githubLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Project on github (link)" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/colorAccent"
-        android:paddingBottom="12dp"
-        android:paddingTop="12dp"
-        android:text="Submit"
-        app:cornerRadius="24dp" />
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="@color/colorAccent"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="Submit"
+            app:cornerRadius="24dp" />
 
     </LinearLayout>
 
@@ -87,7 +106,6 @@
         android:id="@+id/materialToolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="bla"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
