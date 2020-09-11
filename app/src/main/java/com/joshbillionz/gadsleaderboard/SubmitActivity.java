@@ -15,6 +15,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
@@ -48,6 +49,14 @@ public class SubmitActivity extends AppCompatActivity {
         mEmailET = findViewById(R.id.email);
         mGithubET = findViewById(R.id.githubLink);
         MaterialButton button = findViewById(R.id.submitButton);
+        ImageView back = findViewById(R.id.backButton);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         button.setOnClickListener(v -> {
             TextInputEditText fields[] = {mFirstNameET, mLastNameET,  mEmailET,mGithubET};
@@ -64,7 +73,7 @@ public class SubmitActivity extends AppCompatActivity {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         switch(tag){
-            case TAG_CONFIRM:  dialog.setContentView(R.layout.dialog_confirm);
+          case TAG_CONFIRM:  dialog.setContentView(R.layout.dialog_confirm);
             dialog.findViewById(R.id.yes).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,6 +86,13 @@ public class SubmitActivity extends AppCompatActivity {
                 }
 
             });
+            dialog.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+
+                });
             break;
             case TAG_SUCCESS:  dialog.setContentView(R.layout.dialog_success);
                 break;
